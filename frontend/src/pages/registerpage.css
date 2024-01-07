@@ -1,0 +1,147 @@
+.divforregister{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.register_here{
+    margin-top: 20px;
+    font-size: 30px;
+    color: white;
+    font-style: bold;
+}
+.Registerform{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.divforname{
+    margin-top: 30px;
+    width:60vh;
+    
+}
+.namefield{
+    padding: 3px;
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+}
+.divforusername{
+    margin-top: 30px;
+    width:60vh;
+}
+.usernamefield{
+    padding: 3px;
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.divforpassword{
+    background:white;
+    margin-top: 30px;
+    width:60vh;
+    display: flex;
+    align-items: center; 
+    border-radius: 10px;
+}
+.passwordfield{
+    padding: 3px;
+    width: 100%;
+    height: 35px;
+    border: none;
+   outline: none;
+    font-size: 20px;
+    flex: 1;
+    background:none;
+}
+.eyeicon{
+  top: 50%;
+  right: 10px;
+  cursor: pointer; 
+  margin-right: 3px; 
+}
+.divforconfirmpassword{
+    background:white;
+    margin-top: 30px;
+    width:60vh;
+    display: flex;
+    align-items: center; 
+    border-radius: 10px;
+}
+.confirmpasswordfield{
+    padding: 3px;
+    width: 100%;
+    height: 35px;
+    border: none;
+   outline: none;
+    font-size: 20px;
+    flex: 1;
+    background:none;
+}
+
+
+
+.registerbutton{
+    color:white;
+    margin-top: 30px;
+    width:60vh;
+    padding: 3px;
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    background:linear-gradient(to right, rgb(26, 40, 83),rgb(30,68,157), white);
+}
+
+
+
+.Loginform{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.loginbutton{
+    color:white;
+    margin-top: 30px;
+    width:60vh;
+    padding: 3px;
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    background:linear-gradient(to right, rgb(26, 40, 83),rgb(30,68,157), white);
+}
+
+.divforlogin{
+    display: grid;
+    justify-content: center;
+    align-items: center;  
+}
+
+.login_here{
+    margin-top: 40px;
+    font-size: 30px;
+    color: white;
+    font-style: bold;
+}
+
+.divforpicture{
+    margin-top: 20px;
+    display: flex;
+    gap:5px;
+    align-items: center;
+}
+.selectpic{
+    color: white;
+    font-size: 20px;
+}
+.choosefile{
+
+}
