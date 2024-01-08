@@ -5,5 +5,5 @@ Content-Type: application/json
   "email": "diya@example.com",
   "password": "secretpassword"
 }
-
-
+###
+GET http://localhost:5000/api/user?

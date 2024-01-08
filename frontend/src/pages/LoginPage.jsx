@@ -77,7 +77,7 @@ export default function LoginPage(){
                 <div className="divforbutton">
                 <button className="loginbutton" type='submit'
                 onClick={() => {
-                    setEmail("guest@exaple.com")
+                    setEmail("guest@example.com")
                     setPassword('12345')
                 }}
                 >
