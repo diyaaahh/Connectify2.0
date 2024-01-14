@@ -1,0 +1,44 @@
+.creategroupchat{
+    margin-top: 10px;
+    margin-left:110px;
+    width:140px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:3px;
+    background-color:  rgb(26, 40, 83);
+    padding: 3px;
+    border-radius: 10px;
+}
+.addgroup{
+    border: none;
+    background-color: rgb(26, 40, 83);
+    color: white;
+}
+.addicon{
+    color: white;
+}
+.creategroupchat:hover{
+    box-shadow: 2px 3px 2px rgb(26, 40, 83);
+}
+
+.divforallchats{
+    overflow-y: scroll;
+}
+.divforchatname{
+    margin-top:20px;
+    background-color:rgb(26, 40, 83) ;
+    color: white;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 5px;
+    
+}
+.divforchatname.selected {
+    padding: 7px;
+    font-size: 22px;
+    font-style:oblique;
+    border-radius: 0px;
+    background-color:rgb(12, 38, 116) ;
+  }

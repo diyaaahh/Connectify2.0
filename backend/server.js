@@ -20,9 +20,7 @@ app.use(cors({
     credentials: true,
   }));
 
-app.get('/api/chat',(req,res)=>{
-    res.send(chats)
-})
+
 
 app.use('/api/user' , userRoutes)
 app.use('/api/chat' , chatRoutes )

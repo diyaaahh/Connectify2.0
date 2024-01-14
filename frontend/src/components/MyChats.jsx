@@ -2,6 +2,11 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { ChatState } from "../../context/ChatProvider";
+import { IoMdAdd } from "react-icons/io";
+import "./MyChats.css"
+
+import getSender from "../../config/ChatLogics";
+import ChatLoading from "./ChatLoading";
 
 export default function MyChats() {
   const [loggedUser, setLoggedUser] = useState();
@@ -21,6 +26,7 @@ export default function MyChats() {
       };
 
       const { data } = await axios.get("http://localhost:5000/api/chat", config);
+      console.log(data)
       setChats(data);
     } catch (error) {
       alert("Failed creating a chat");
@@ -33,5 +39,29 @@ export default function MyChats() {
     fetchChats();
   }, [user]);  // Include user as a dependency
 
-  return <div>my chats</div>;
+  return(
+    <div>
+        <div className="creategroupchat">
+            <button className="addgroup">
+                Create a group chat
+            </button>
+            <IoMdAdd className="addicon"/>
+        </div>
+        <div>
+            {chats ? (<div className="divforallchats">
+                    {chats.map((chat) =>(
+                        <div onClick={() => setSelectedChat(chat)} key={chat._id}>
+                        <div className={`divforchatname ${selectedChat === chat ? "selected" : ""}`}>
+                            {!chat.isGroupChat ? getSender(loggedUser , chat.users):(chat.chatName)}
+                        </div>
+                        </div>
+                    ))}
+                 </div>
+                ):(<ChatLoading/>)}
+            <div>
+
+            </div>
+        </div>
+    </div>
+  )
 }
