@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import LoginPage from "./LoginPage";
 import RegisterPage from "./RegisterPage";
 import "./homepage.css";
+import { ChatState } from "../../context/ChatProvider";
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("login");
+  const navigateTo = useNavigate()
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("userInfo"));
+    if(user){
+      navigateTo('/chats')
+    }
+  }, [navigateTo]);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);

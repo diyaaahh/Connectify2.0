@@ -1,0 +1,47 @@
+.overall{
+    margin-top:20px;
+    margin-left:10px;
+    background-color: rgb(26, 40, 83);
+    width:230px;
+    border-radius: 10px;
+
+}
+.overall:hover{
+    box-shadow: 2px 2px rgb(26, 40, 83,0.5);
+}
+
+.imgandname{
+   display:flex;
+   justify-content:center;
+   align-items: center;
+   padding-top:3px;
+   padding-left:10px;
+   gap:10px;
+}
+.divforname{
+    margin-top:10px;
+    margin-bottom:10px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+
+    
+}
+.divforimage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid white;
+}
+.image{
+    width:40px;
+    height:40px;
+    border-radius: 30px;
+}
+.divforemail{
+    color:white;
+    padding-left:5px;
+
+}
