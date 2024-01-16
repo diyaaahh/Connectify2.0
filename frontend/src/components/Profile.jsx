@@ -19,7 +19,8 @@ export default function Profile(){
         backgroundColor: 'rgb(26, 40, 83)',
         border: '1px solid white',
         borderRadius: '5px',
-        width:"50px"
+        width:"50px",
+        height:"22px"
       };
 
   const buttonStyle = {
@@ -37,7 +38,7 @@ const {user}= ChatState()
         <div>
             <Popup trigger={
             <div className="divforprofile">
-                <div className="divforpicture">
+                <div className="divforprofilepicture">
                 <img className="image"  src={user.pic} alt={`${user.name}'s profile`} />
                 </div>
                 {user.name}

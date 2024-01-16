@@ -25,6 +25,8 @@
 
 .divforallchats{
     overflow-y: scroll;
+    width:400px;
+    margin-left:5px;
 }
 .divforchatname{
     margin-top:20px;
@@ -42,3 +44,127 @@
     border-radius: 0px;
     background-color:rgb(12, 38, 116) ;
   }
+  .popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 2;
+  }
+  
+  .popup-content {
+    background: #fff;
+    padding: 10px;
+    border: 5px solid rgb(26,40,83);
+    border-radius: 10px;
+    width:500px;
+    height:500px;
+  }
+
+.closepopup{
+    border-radius: 5px;
+    margin-left:480px;
+    background-color: rgb(26,40,83);
+    color: white;
+    font-size: 2.3vh;
+    border:none;
+    padding: 2px;
+    
+}
+.divforinputs{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.inputforchatname{
+     height: 35px;
+     font-size: 16px;
+     padding: 5px;
+     border:2px solid rgb(26,40,83);
+     border-radius: 10px;
+     color:rgb(26,40,83) ;
+}  
+.inputformembers{
+    height: 35px;
+    font-size: 16px;
+    padding: 5px;
+    border:2px solid rgb(26,40,83);
+    border-radius: 10px;
+    color:rgb(26,40,83) ;
+}
+.creategroup{
+    width:150px;
+    height: 35px;
+    font-size: 16px;
+    border:none;
+    padding: 2px;
+    background-color: rgb(26,40,83);
+    color: white;
+    border-radius: 10px;
+}
+
+.overall2{
+
+    margin-left:10px;
+    background-color: rgb(26, 40, 83);
+    width:200px;
+    border-radius: 10px;
+    height:30px;
+    margin-top: 5px;
+
+}
+.overall2:hover{
+    box-shadow: 2px 2px rgb(26, 40, 83,0.5);
+}
+
+.imgandname2{
+   display:flex;
+   justify-content:center;
+   align-items: center;
+   padding-top:4px;
+   padding-left:5px;
+   gap:10px;
+}
+.divforimage2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid white;
+    margin-bottom: 8px;
+}
+.image2{
+    width:20px;
+    height:20px;
+    border-radius: 30px;
+}
+.divforemail2{
+    color:white;
+    padding-left:1px;
+    margin-bottom: 8px;
+
+}
+
+.divforUserBadge{
+    display: flex;
+    width:80px;
+    margin-left: 10px;
+   
+}
+.divfornameinuserbadge{
+    padding-bottom: 3px;
+}
+.divforUserBadge:hover{
+    color: white;
+    background-color:rgb(26, 40, 83) ;
+    border-radius: 3px;
+    cursor: pointer;
+
+}

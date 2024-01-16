@@ -2,7 +2,6 @@ import axios from "axios"
 import { useState } from "react";
 import { useEffect } from "react"
 import { ChatState } from "../../context/ChatProvider";
-import {IoMdSend} from "react-icons/io"
 import "./Chatspage.css"
 import SideDrawer from "../components/SideDrawer";
 import Profile from "../components/Profile";
@@ -10,11 +9,13 @@ import Drawer from 'react-modern-drawer'
 import MyChats from "../components/MyChats";
 import ChatLoading from "../components/ChatLoading";
 import UserListItem from "../components/UserList";
+import ChatBox from "../components/Chatbox";
 import 'react-modern-drawer/dist/index.css'
 
 
 
 export default function ChatsPage(){
+
     
     const{user, setSelectedChat, chats , setChats} = ChatState();
     const [isOpen, setIsOpen] = useState(false)
@@ -114,17 +115,7 @@ export default function ChatsPage(){
           <MyChats/>
         </div>
         <div className="rightdiv">
-            <div className="flex-grow">
-                Messages with selected person 
-            </div>
-            <div className="typeandsend">
-                <div>
-                    <input type="text" placeholder="Write a message" className="typing"/>
-                </div>
-                <button className="divforsend">
-                 <IoMdSend className="sendicon"/>
-                 </button>
-            </div>
+            <ChatBox/>
         </div>
             </div>
         </div>

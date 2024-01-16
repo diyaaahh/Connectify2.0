@@ -133,7 +133,7 @@ export default function RegisterPage() {
         <IoMdEyeOff style={{fontSize:'1.25rem'}}/> : <IoMdEye style={{fontSize:'1.25rem'}} />}
         </i>
         </div>
-        <div className="divforpicture"> 
+        <div className="divforpictureupload"> 
           <label className="selectpic"> Select a picture</label>
           <input type='file' style={{ color: 'rgba(0, 0, 0, 0)' }}
           accept='image/*'
