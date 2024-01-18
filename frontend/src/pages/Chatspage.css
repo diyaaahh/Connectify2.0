@@ -2,7 +2,6 @@
     margin:0px;
     padding:0px;
 }
-
 .navbar{
     width: 100%;
     height:50px;
@@ -11,17 +10,28 @@
 }
 .divafternavbar{
     display: flex;
-    height:94vh;
+    gap:10px;
+    height:90vh;
 }
 .leftdiv{
     width:40%;
     height:100%;
-    border: 2px solid rgb(26, 40, 83) ;
+    border-width: 3px  ;
+    border-style:solid;
+    border-color:rgb(26, 40, 83) ;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
 }
 .rightdiv{
     width: 100%;
     height:100%;
-    background-color:pink; 
+    border-width: 3px ;
+    border-style:solid;
+    border-color:rgb(26, 40, 83) ;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
 }
 .searchbar{
     display: flex;

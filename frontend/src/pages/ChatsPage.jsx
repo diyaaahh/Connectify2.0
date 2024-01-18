@@ -22,6 +22,7 @@ export default function ChatsPage(){
     const[search , setSearch]=useState(false)
     const [searchResult, setSearchResult] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [fetchAgain, setFetchAgain]=useState(false)
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState)}
 
@@ -112,10 +113,10 @@ export default function ChatsPage(){
             </div>
             <div className="divafternavbar">
         <div className="leftdiv"> 
-          <MyChats/>
+          <MyChats fetchAgain={fetchAgain}/>
         </div>
         <div className="rightdiv">
-            <ChatBox/>
+            <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain}/>
         </div>
             </div>
         </div>

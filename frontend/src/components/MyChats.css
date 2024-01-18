@@ -27,24 +27,30 @@
     overflow-y: scroll;
     width:400px;
     margin-left:5px;
+    margin-right:5px;
 }
 .divforchatname{
     margin-top:20px;
-    background-color:rgb(26, 40, 83) ;
-    color: white;
+    color:rgb(26, 40, 83);
     padding: 5px;
     font-size: 20px;
-    border-radius: 5px;
+    border:1px solid  rgb(26, 40, 83);
+    border-radius: 10px;
     
 }
+.divforchatname:hover{
+    border-width: 2px ;
+}
 .divforchatname.selected {
-    padding: 7px;
+    padding: 5px;
     font-size: 22px;
     font-style:oblique;
-    border-radius: 0px;
-    background-color:rgb(12, 38, 116) ;
+    border-radius: 10px;
+    background-color:rgb(26, 40, 83) ;
+    color: white;
   }
   .popup-container {
+    z-index: 99;
     position: fixed;
     top: 0;
     left: 0;
@@ -54,7 +60,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 2;
+    max-height: fit-content;
   }
   
   .popup-content {
@@ -63,7 +69,8 @@
     border: 5px solid rgb(26,40,83);
     border-radius: 10px;
     width:500px;
-    height:500px;
+  
+    max-height: fit-content;
   }
 
 .closepopup{
@@ -154,12 +161,22 @@
 
 .divforUserBadge{
     display: flex;
-    width:80px;
+    flex-direction: row;
     margin-left: 10px;
+    margin-top: 10px;
+    padding: 2px;
+    max-width: fit-content;
    
 }
 .divfornameinuserbadge{
-    padding-bottom: 3px;
+    display: flex;
+}
+.divforeachnameinuserbadge{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap:5px;
+
 }
 .divforUserBadge:hover{
     color: white;

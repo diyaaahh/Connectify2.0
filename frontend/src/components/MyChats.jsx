@@ -12,7 +12,7 @@ import getSender from "../../config/ChatLogics";
 import ChatLoading from "./ChatLoading";
 import e from "cors";
 
-export default function MyChats() {
+export default function MyChats({fetchAgain}) {
   const [loggedUser, setLoggedUser] = useState();
   const [isPopupOpen, setPopupOpen] = useState(false); // State to manage popup visibility
   const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
@@ -46,7 +46,7 @@ export default function MyChats() {
   useEffect(() => {
     setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
     fetchChats();
-  }, [user]); // Include user as a dependency
+  }, [user,fetchAgain]); // Include user as a dependency
 
   const handleSearch= async (query) =>{
     setSearch(query);
