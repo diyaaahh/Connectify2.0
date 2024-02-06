@@ -4,7 +4,7 @@ import UserBadgeItem from "./Userbadge"
 import axios from "axios"
 import "./Chatbox.css"
 
-export default function UpdateGroupChat ({fetchAgain , setFetchAgain}){
+export default function UpdateGroupChat ({fetchAgain , setFetchAgain , fetchMessages}){
     const{selectedChat, setSelectedChat, user}= ChatState()
     const [groupChatName, setGroupChatName]= useState()
     const [selectedUsers, setSelectedUsers] = useState([]);
@@ -28,6 +28,7 @@ export default function UpdateGroupChat ({fetchAgain , setFetchAgain}){
             }, config)
             user1._id === user._id? setSelectedChat():setSelectedChat(data);
             setFetchAgain(!fetchAgain)
+            fetchMessages()
 
         }catch(error){
             alert('Error while removing member for group')

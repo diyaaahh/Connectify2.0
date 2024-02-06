@@ -1,6 +1,7 @@
 const asyncHandler = require('express-async-handler')
-const Message = require('../models/MessageModel')
-
+const Message = require('../models/MessageModel') 
+const User = require("../models/userModel");
+const Chat = require("../models/chatModel.js")
 const allMessages = asyncHandler(async (req, res) => {
     try {
       const messages = await Message.find({ chat: req.params.chatId })

@@ -6,10 +6,15 @@ import getSender from "../../config/ChatLogics"
 import "./Chatbox.css"
 import { IoMdSettings } from "react-icons/io";
 import UpdateGroupChat from "./UpdateGroupChat";
+import axios from "axios";
+import { useEffect } from "react";
+import ScrollableChat from "./scrollablechat";
+
 
 export default function ChatBox({fetchAgain , setFetchAgain}){
     const {user , selectedChat, setSelectedChat}=ChatState()
-    const [newMessageText, setNewMessageText]= useState("")
+    const [newMessage, setNewMessage]= useState("")
+    const [messages, setMessages] = useState([])
 
     const popupContentStyle = {
         padding: '10px',
@@ -21,7 +26,57 @@ export default function ChatBox({fetchAgain , setFetchAgain}){
         maxHeight: "fit-content"
       };
 
-    const sendMessage=() =>{
+      const fetchMessages= async () =>{
+        if(!selectedChat) return 
+        try{
+            const config = {
+                headers: {
+                  Authorization: `Bearer ${user.token}`,
+                },
+              };
+            const {data} = await axios.get(`http://localhost:5000/api/message/${selectedChat._id}`,config)
+ 
+            setMessages(data);
+
+        }catch(error){
+            alert("error fetching messages")
+            console.log(error)
+        }
+      }
+
+      useEffect(()=>{
+        fetchMessages()
+      },[selectedChat])
+
+      const typingHandler = (ev) =>{
+        setNewMessage(ev.target.value)
+    }
+    const sendMessage=async (event) =>{
+        event.preventDefault()
+        if(newMessage){
+            try {
+                const config = {
+                  headers: {
+                    "Content-type": "application/json",
+                    Authorization: `Bearer ${user.token}`,
+                  },
+                };
+                setNewMessage("");
+        const { data } = await axios.post(
+          "http://localhost:5000/api/message",
+          {
+            content: newMessage,
+            chatId: selectedChat._id,
+          },
+          config
+        );
+        setMessages([...messages, data]);
+
+            }catch (error) {
+                console.error("Error sending message:", error);
+                alert("Failed to send the message");
+              }
+        }
 
     }
     return(
@@ -49,17 +104,22 @@ export default function ChatBox({fetchAgain , setFetchAgain}){
                              position="bottom center"
                             contentStyle={popupContentStyle}
                              >
-                                <UpdateGroupChat fetchAgain={fetchAgain} setFetchAgain={setFetchAgain}/>
+                                <UpdateGroupChat fetchAgain={fetchAgain} setFetchAgain={setFetchAgain}
+                                fetchMessages={fetchMessages}
+                                />
                              </Popup>
                         </div> 
+
                     )}
+                     
                 </div>
                 <div className="divforchatting">
+                <ScrollableChat messages={messages}/>
                 <form className="typeandsend" onSubmit={sendMessage}>
                 <div className="divfortype">
                     <input type="text"
-                    value={newMessageText}
-                    onChange ={ev => setNewMessageText(ev.target.value)}
+                    value={newMessage}
+                    onChange ={typingHandler}
                     placeholder="Write a message" className="typing"/>
                 </div>
                 <button className="divforsend"
