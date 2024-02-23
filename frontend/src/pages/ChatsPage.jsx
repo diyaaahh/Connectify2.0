@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState } from "react";
 import { useEffect } from "react"
+import { FaBell } from "react-icons/fa";
 import { ChatState } from "../../context/ChatProvider";
 import "./Chatspage.css"
 import SideDrawer from "../components/SideDrawer";
@@ -17,7 +18,7 @@ import 'react-modern-drawer/dist/index.css'
 export default function ChatsPage(){
 
     
-    const{user, setSelectedChat, chats , setChats} = ChatState();
+    const{user, setSelectedChat, chats , setChats, notification, setNotification} = ChatState();
     const [isOpen, setIsOpen] = useState(false)
     const[search , setSearch]=useState(false)
     const [searchResult, setSearchResult] = useState([]);
@@ -104,7 +105,18 @@ export default function ChatsPage(){
                 <div className="divforconnectify">
                 Connectify
                 </div>
-                {user && 
+                <div className="notification">
+                {/* <FaBell className="notificationicon"/> */}
+                <div className="notificationcount">
+                    {notification.map(notif => (
+                        <div className="thecount" key={notif._id}> 
+            
+                        </div>
+                    ))}
+                 </div>
+                </div>
+               {user &&  
+               
                 <div className="divforProfile">
                   <Profile/>
 

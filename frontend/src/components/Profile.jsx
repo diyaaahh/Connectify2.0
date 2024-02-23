@@ -34,9 +34,11 @@ export default function Profile(){
   };
 
 const {user}= ChatState()
+console.log(user)
     return(
         <div>
             <Popup trigger={
+                
             <div className="divforprofile">
                 <div className="divforprofilepicture">
                 <img className="image"  src={user.pic} alt={`${user.name}'s profile`} />

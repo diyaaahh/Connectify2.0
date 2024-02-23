@@ -9,12 +9,17 @@ import UpdateGroupChat from "./UpdateGroupChat";
 import axios from "axios";
 import { useEffect } from "react";
 import ScrollableChat from "./scrollablechat";
+import {io} from 'socket.io-client'
 
+
+const ENDPOINT = "http://localhost:5000"
+var socket , selectedChatCompare;
 
 export default function ChatBox({fetchAgain , setFetchAgain}){
-    const {user , selectedChat, setSelectedChat}=ChatState()
+    const {user , selectedChat, setSelectedChat, notification , setNotification}=ChatState()
     const [newMessage, setNewMessage]= useState("")
     const [messages, setMessages] = useState([])
+    const[socketConnected , setsocketConnected]=useState(false)
 
     const popupContentStyle = {
         padding: '10px',
@@ -38,15 +43,41 @@ export default function ChatBox({fetchAgain , setFetchAgain}){
  
             setMessages(data);
 
+            socket.emit("join chat", selectedChat._id)
         }catch(error){
             alert("error fetching messages")
             console.log(error)
         }
       }
-
+      useEffect(()=>{
+        socket=io(ENDPOINT)
+        socket.emit("setup",user)
+        socket.on("connected", ()=> setsocketConnected(true))
+      },[])
+      
       useEffect(()=>{
         fetchMessages()
+        selectedChatCompare = selectedChat
       },[selectedChat])
+
+      console.log(notification , "vwekhge osfhuer olj")
+
+      useEffect(() => {
+        socket.on("message recieved", (newMessageRecieved) => {
+          if (
+            !selectedChatCompare || // if chat is not selected or doesn't match current chat
+            selectedChatCompare._id !== newMessageRecieved.chat._id
+          ) {
+            if (!notification.includes(newMessageRecieved)) {
+              setNotification([newMessageRecieved, ...notification]);
+              setFetchAgain(!fetchAgain);
+            }
+          } else {
+            setMessages([...messages, newMessageRecieved]);
+          }
+        });
+      });
+    
 
       const typingHandler = (ev) =>{
         setNewMessage(ev.target.value)
@@ -70,6 +101,7 @@ export default function ChatBox({fetchAgain , setFetchAgain}){
           },
           config
         );
+        socket.emit("new message", data)
         setMessages([...messages, data]);
 
             }catch (error) {
@@ -79,6 +111,7 @@ export default function ChatBox({fetchAgain , setFetchAgain}){
         }
 
     }
+   
     return(
         <div className="chatboxoverall">
              {!selectedChat && (
